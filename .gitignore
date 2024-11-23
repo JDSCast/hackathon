@@ -36,4 +36,4 @@ backend/src/utilidades
 # Frontend
 
 frontend - temp/
-frontend/
+frontend/node_modules/
