@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import data from './data';
+import {useState} from 'react';
+import data from './components/data';
 
 const AppList = () => {
     const [selectedProject, setSelectedProject] = useState(null)
