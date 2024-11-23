@@ -1,0 +1,39 @@
+
+
+# Node modules
+backend/node_modules/
+
+# Environment variables
+backend/.env
+
+# Logs
+*.log
+
+# Build outputs
+dist/
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+*.vscode/
+.idea/
+*.iml
+
+# Others
+media/
+backend - Mongo/
+
+# Backend
+
+backend/.vscode/
+
+backend/src/utilidades
+
+# Frontend
+
+frontend - temp/
+frontend/
