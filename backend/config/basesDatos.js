@@ -8,13 +8,13 @@ dotenv.config();
 //Conexion con Mongo BD
 const connectionBDMongo = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
+        await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
-        console.log('Base de datos conectada a MongoDB Atlas ');
+        console.log('Base de datos conectada a MongoDB ');
     } catch (error) {
-        console.log('Error en la conexión a MongoDB Atlas: ',error);
+        console.log('Error en la conexión a MongoDB: ',error);
         process.exit();
     }
 };

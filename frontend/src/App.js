@@ -19,7 +19,7 @@ const App = () => {
       const response = await axios.get("http://localhost:5000/proyectos");
       setProjects(response.data.Proyectos);
     } catch (error) {
-      console.error("Error al obtener proyectos:", error);
+      console.error("Error al obtener proyectos:", error.message);
     }
   };
 
@@ -28,7 +28,7 @@ const App = () => {
       const response = await axios.get(`http://localhost:5000/${proyectoId}`);
       setActivities(response.data.actividad);
     } catch (error) {
-      console.error("Error al obtener actividades:", error);
+      console.error("Error al obtener actividades:", error.message);
     }
   };
 
@@ -40,7 +40,7 @@ const App = () => {
         projects={projects}
         onSelect={(project) => {
           setSelectedProject(project);
-          fetchActivities(project.id);
+          fetchActivities(project._id);
         }}
       />
       {selectedProject && (
@@ -52,8 +52,8 @@ const App = () => {
             ))}
           </ul>
           <ActivityForm
-            projectId={selectedProject.id}
-            onActivityAdded={() => fetchActivities(selectedProject.id)}
+            projectId={selectedProject._id}
+            onActivityAdded={() => fetchActivities(selectedProject._id)}
           />
         </>
       )}
