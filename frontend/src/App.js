@@ -45,6 +45,10 @@ const App = () => {
       />
       {selectedProject && (
         <>
+        <ActivityForm
+            projectId={selectedProject._id}
+            onActivityAdded={() => fetchActivities(selectedProject._id)}
+          />
           <h2>Actividades de: {selectedProject.nombre}</h2>
           <table>
             <thead>
@@ -64,10 +68,7 @@ const App = () => {
                   ))}
                 </tbody>
           </table>
-          <ActivityForm
-            projectId={selectedProject._id}
-            onActivityAdded={() => fetchActivities(selectedProject._id)}
-          />
+          
         </>
       )}
     </div>

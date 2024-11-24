@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./projectForm.css"
 
 const ProjectForm = ({ onProjectAdded }) => {
   const [name, setName] = useState("");
