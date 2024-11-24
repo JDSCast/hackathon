@@ -4,13 +4,13 @@ const ProjectList = ({ projects, onSelect }) => {
   return (
     <div>
       <h2>Proyectos</h2>
-      <ul>
+      <ol>
         {projects.map((project) => (
           <li key={project.id} onClick={() => onSelect(project)}>
             {project.nombre} : {project.descripcion}
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
