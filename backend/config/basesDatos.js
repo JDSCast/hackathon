@@ -29,12 +29,11 @@ const pool = new Pool({
 
 });
 
-const connectionPostgres = async () => {
+const connectionBDPostgres = async () => {
 
     try {
 
         await pool.connect();
-
         console.log('Conexión exitosa a PostgreSQL');
 
     } catch (error) {
@@ -44,3 +43,5 @@ const connectionPostgres = async () => {
     }
 
 };
+
+module.exports = { connectionBDPostgres, connectionBDMongo,  pool };
