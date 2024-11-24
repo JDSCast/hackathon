@@ -46,11 +46,11 @@ const App = () => {
       {selectedProject && (
         <>
           <h2>Actividades de: {selectedProject.nombre}</h2>
-          <ul>
+          <ol>
             {activities.map((activity) => (
               <li key={activity.id}>{activity.nombre}</li>
             ))}
-          </ul>
+          </ol>
           <ActivityForm
             projectId={selectedProject.id}
             onActivityAdded={() => fetchActivities(selectedProject.id)}
