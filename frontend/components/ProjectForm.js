@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ProjectForm = ({ fetchProjects }) => {
-    const [name, setName] = useState("");
+const ProjectForm = ({ onProjectAdded }) => {
+  const [name, setName] = useState("");
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        await axios.post("/api/projects", { name });
-        setName("");
-        fetchProjects();
+      await axios.post("http://localhost:4000/api/proyectos", { nombre: name });
+      setName("");
+      onProjectAdded();
     } catch (error) {
-        console.error("Error creating project:", error);
+      console.error("Error al agregar proyecto:", error);
     }
-};
+  };
 
-return (
+  return (
     <form onSubmit={handleSubmit}>
-        <h2>Agregar Proyecto</h2>
-        <input
+      <h2>Agregar Proyecto</h2>
+      <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Nombre del proyecto"
         required
-        />
-        <button type="submit">Agregar</button>
+      />
+      <button type="submit">Agregar</button>
     </form>
-    );
+  );
 };
 
 export default ProjectForm;
