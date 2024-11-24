@@ -19,7 +19,7 @@ const App = () => {
       const response = await axios.get("http://localhost:5000/proyectos");
       setProjects(response.data.Proyectos);
     } catch (error) {
-      console.error("Error al obtener proyectos:", error.message);
+      console.error("Error al obtener proyectos:", error);
     }
   };
 
@@ -28,7 +28,7 @@ const App = () => {
       const response = await axios.get(`http://localhost:5000/${proyectoId}`);
       setActivities(response.data.actividad);
     } catch (error) {
-      console.error("Error al obtener actividades:", error.message);
+      console.error("Error al obtener actividades:", error);
     }
   };
 
@@ -46,11 +46,24 @@ const App = () => {
       {selectedProject && (
         <>
           <h2>Actividades de: {selectedProject.nombre}</h2>
-          <ul>
-            {activities.map((activity) => (
-              <li key={activity.id}>{activity.nombre}</li>
-            ))}
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Responsable</th>
+                <th>Fecha</th>
+                </tr>
+                </thead>
+                <tbody>
+                  {activities.map((activity) => (
+                    <tr key={activity.id}>
+                      <td>{activity.nombre}</td>
+                      <td>{activity.responsable}</td>
+                      <td>{new Date(activity.fecha_entrega).toLocaleDateString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+          </table>
           <ActivityForm
             projectId={selectedProject._id}
             onActivityAdded={() => fetchActivities(selectedProject._id)}
