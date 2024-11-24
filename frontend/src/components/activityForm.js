@@ -9,9 +9,9 @@ const ActivityForm = ({ projectId, onActivityAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:4000/api/actividades/${projectId}`, {
+      await axios.post(`http://localhost:5000/${projectId}`, {
         nombre: name,
-        responsable,
+        responsable: responsable,
         fecha_entrega: fechaEntrega,
       });
       setName("");

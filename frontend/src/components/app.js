@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/proyectos");
+      const response = await axios.get("http://localhost:5000/proyectos");
       setProjects(response.data.Proyectos);
     } catch (error) {
       console.error("Error al obtener proyectos:", error);
@@ -25,7 +25,7 @@ const App = () => {
 
   const fetchActivities = async (projectId) => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/actividades/${projectId}`);
+      const response = await axios.get(`http://localhost:5000/${projectId}`);
       setActivities(response.data.actividad);
     } catch (error) {
       console.error("Error al obtener actividades:", error);

@@ -7,7 +7,7 @@ const ProjectList = ({ projects, onSelect }) => {
       <ul>
         {projects.map((project) => (
           <li key={project.id} onClick={() => onSelect(project)}>
-            {project.nombre}
+            {project.nombre} : {project.descripcion}
           </li>
         ))}
       </ul>

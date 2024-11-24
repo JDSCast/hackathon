@@ -3,11 +3,12 @@ import axios from "axios";
 
 const ProjectForm = ({ onProjectAdded }) => {
   const [name, setName] = useState("");
+  const [description,setDescription] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/api/proyectos", { nombre: name });
+      await axios.post("http://localhost:5000/proyectos", { nombre: name,descripcion:description });
       setName("");
       onProjectAdded();
     } catch (error) {
@@ -18,11 +19,20 @@ const ProjectForm = ({ onProjectAdded }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Agregar Proyecto</h2>
+      <label>Nombre del Proyecto</label>
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Nombre del proyecto"
+        required
+      />
+      <label>Descripcion del Proyecto</label>
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Descripcion del proyecto"
         required
       />
       <button type="submit">Agregar</button>
